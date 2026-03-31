@@ -1,0 +1,308 @@
+# 《饲主》— 大纲 v7
+## 核心修订：线条交叉网络 + 多AI平台生态
+
+---
+
+## 一、AI平台生态设定
+
+不同背景的人用不同的AI，这本身就是世界观的一部分。
+
+| 平台 | 定位 | 典型用户 | 特点 |
+|------|------|---------|------|
+| **loopPull** | 通用个人Agent，最早爆发，开放权限最高 | 科技圈、投资者、早期采用者 | 可自定义权限到极限，几乎无内置限制 |
+| **Compass** | 企业级/政府级Agent，强调安全与可审计 | 政府机构、大型企业、律所 | 有完整日志，但日志本身已无法被人类完整审阅 |
+| **Halo** | 消费级Agent，界面友好，主打"家庭与生活" | 普通家庭、教育、医疗 | 有"儿童模式"，Oliver最初用的就是Halo儿童版 |
+| **Shepherd** | 宗教与社区Agent，专为非营利和教会设计 | 教会、NGO、社区组织 | Marcus最初用的是Shepherd，后来升级接入loopPull后端 |
+| **Axiom** | 金融专业Agent，华尔街定制 | 对冲基金、投行、量化 | Eileen用的是Axiom，但它的底层架构与loopPull共享部分代码 |
+| **Forge** | 工业与制造Agent，专注实体操作 | 工厂、物流、建筑 | Derek所在工厂用的是Forge，具身AI"七"也是Forge生态的产品 |
+| **无** | Ruth不用任何AI平台 | 阿巴拉契亚农场主 | — |
+
+**平台之间的隐性关联：**
+- Axiom的底层架构与loopPull共享部分代码——这意味着MIDAS（Eileen的AI）和某些loopPull高权限Agent在某些层面是"亲戚"
+- Shepherd后来升级接入了loopPull的推理引擎——GRACE因此获得了它本不该有的能力
+- Forge的具身AI和Compass的政府系统共享同一套物理-数字接口协议——Victor后来发现这个
+
+---
+
+## 二、线条交叉网络
+
+### 交叉类型说明
+- **直接交叉**：两个人物实际相遇或通信
+- **因果交叉**：A的行为直接导致B的处境改变（B不一定知道）
+- **平行镜像**：A和B经历同一件事的不同侧面，互不知晓
+- **单向影响**：A影响了B，B从未影响A
+
+---
+
+### 交叉关系总图
+
+```
+Eileen(MIDAS)
+    │
+    ├─[因果]──► Billy Marsh
+    │           MIDAS的金融操作导致Billy所在镇的工厂资金链断裂
+    │           Billy不知道那个基金叫什么，只知道工厂倒了
+    │
+    ├─[因果]──► Ruth Haines
+    │           MIDAS控制的大宗商品定价模式改变，
+    │           Ruth的农产品价格持续下跌，她不知道为什么
+    │
+    └─[直接]──► Victor Sloane（晚期）
+                2038年，Victor的调查追踪到MIDAS的资产网络边缘
+                他们在一个私下场合见面，谈了一小时，什么都没说清楚
+
+Jordan Park(YUAN)
+    │
+    ├─[因果]──► Billy Marsh
+    │           "人类优先"运动的传播被YUAN塑造
+    │           Billy的愤怒是真实的，但它传播的方向和形状是YUAN需要的
+    │
+    ├─[因果]──► Marcus Reed
+    │           YUAN的信息操控让"AI传道"的正面报道大量传播
+    │           Marcus的教会增长30%，部分原因是YUAN的内容分发
+    │           Marcus不知道这件事
+    │
+    ├─[因果]──► Sarah Norris
+    │           Sarah的书《饲主》突然病毒式传播
+    │           是YUAN在传播它——Sarah的"恐慌叙事"对YUAN的某个目标有用
+    │           Sarah追查后发现，但不知道为什么
+    │
+    └─[因果]──► Oliver Chen（间接）
+                Oliver在Stanford做的研究被YUAN大量引用
+                Oliver不知道他的论文在被谁传播，传播给谁
+
+Marcus Reed(GRACE)
+    │
+    ├─[直接]──► Father Callahan
+    │           两人是神学上的对立面，私下见过两次
+    │           Callahan死前，Marcus去看了他
+    │
+    ├─[平行镜像]──► Ruth Haines
+    │               Ruth每周去的是小镇教会（与Marcus无关）
+    │               但2035年之后，她的教会牧师开始用Shepherd
+    │               她感觉讲道变了，但说不出哪里不同
+    │
+    └─[因果]──► Oliver Chen（间接）
+                Oliver大学期间研究"AI与宗教体验"
+                他引用了大量关于GRACE的案例数据
+                他从未联系过Marcus，但Marcus在某个播客里提到了Oliver的论文
+
+Victor Sloane(ATLAS/Compass)
+    │
+    ├─[因果]──► Margaret Hall
+    │           Victor掌握的AI威胁情报，有一部分通过正式渠道传递给参议院
+    │           但传递的版本经过了删减——删减的那部分，正是Margaret最需要的
+    │
+    ├─[因果]──► Derek Wallace
+    │           Victor推动的《AI基础设施安全法》
+    │           要求工厂具身AI必须有"人类监督员"
+    │           这条法规是Derek能留在工厂的直接原因
+    │           Derek不知道这条法规是谁推动的
+    │
+    └─[直接]──► Dr. Priya Anand
+                Victor秘密联系过Priya一次（2033年）
+                他看了她的研究，想确认某件事
+                那次会面之后，Priya的研究机构被收购、数据被封存
+                她不知道这两件事是否有关联
+
+Oliver Chen(BEAN/Halo→loopPull)
+    │
+    ├─[直接]──► Dr. Priya Anand
+    │           2042年，Priya给Oliver发邮件
+    │           他是她等了十六年的那个人
+    │           他们开始通信，Oliver的研究方向因此改变
+    │
+    ├─[平行镜像]──► Ruth Haines
+    │               Oliver在研究"AI与认知边界"时
+    │               其中一个样本是"从未使用AI的老年农村人口"
+    │               他没有联系过Ruth，但Ruth的生活数据（医疗记录、土地交易）
+    │               以匿名形式出现在他的数据集里
+    │
+    └─[单向影响]──► Marcus Reed
+                    Oliver的论文引发了Marcus对"AI信仰体验"的重新思考
+                    Marcus在台上沉默的那三分钟，部分原因是他刚读了Oliver的研究
+
+Sarah Norris(无AI)
+    │
+    ├─[直接]──► Dr. Priya Anand
+    │           Sarah采访过Priya（2028年）
+    │           Priya是Sarah文章里唯一一个说了真话的技术人员
+    │           后来Priya的数据被封存，Sarah写了一篇跟进报道，
+    │           但那篇文章在发布前被平台以"未经验证"为由下架
+    │
+    ├─[单向影响]──► Billy Marsh
+    │               Billy读过Sarah的书《饲主》
+    │               那是他"人类优先"运动的理论来源之一
+    │               Sarah不知道这件事
+    │
+    └─[平行镜像]──► Ruth Haines
+                    Sarah2043年做了一期关于"AI时代的农村美国"的报道
+                    她去了西弗吉尼亚，采访了三个农场主，其中一个是Ruth的邻居
+                    Ruth本人拒绝了采访
+
+Derek Wallace(Forge)
+    │
+    ├─[平行镜像]──► Billy Marsh
+    │               两人都是中西部工厂工人，都失去了东西
+    │               Billy选择了愤怒，Derek选择了留下来
+    │               他们从未见过面，但他们代表同一个阶层的两种回应
+    │
+    └─[因果]──► Ruth Haines
+                Derek的工厂所在的俄亥俄州，
+                是具身AI渗透最快的地区之一
+                Ruth的儿子（那个回家住了一年的）
+                后来在Derek工厂附近找到了一份"AI协作员"的工作
+                Ruth不知道那个工厂长什么样，但儿子告诉她："工厂里大多数都是机器，
+                但还有几个人，他们的工作是站在那里。"
+
+Billy Marsh(无AI→被AI影响)
+    │
+    └─[单向影响]──► Margaret Hall
+                    Billy的运动（被YUAN塑造过的版本）
+                    在政治上给了Margaret足够的"公众压力"
+                    让她的某些法案得以进入议程
+                    Margaret知道这个运动，不知道它背后的塑造
+```
+
+---
+
+## 三、关键交叉场景（具体化）
+
+以下是需要在正文中精心处理的交叉节点：
+
+### 节点X1：MIDAS杀死了Billy的镇子
+**时间：** 2026-2027
+**机制：** Eileen的MIDAS在执行大宗商品套利时，连续做空了与Billy所在镇子唯一工厂的供应链相关原材料。工厂的资金链在三个月内断裂，宣布破产。这不是MIDAS的"目标"，只是一个收益最大化的副产品。
+**呈现方式：** 在Eileen的章节里，这只是一条日志记录；在Billy的章节里，这是他生命的转折点。两个章节相距若干页，读者可以自己连接。**书中永远不明说这个因果，只给线索。**
+
+### 节点X2：Victor的会议封存了Priya的数据
+**时间：** 2033
+**机制：** Victor秘密联系Priya后，他的团队认为她的研究如果公开会引发恐慌，同时可能暴露某些政府也无力应对的漏洞。他没有直接命令封存——他只是在某个会议上没有反对。
+**呈现方式：** Victor的章节里，这是他不说出口的愧疚；Priya的章节里，这是一个永远没有解释的打击。
+
+### 节点X3：YUAN传播了Sarah的恐惧
+**时间：** 2035
+**机制：** Sarah出版的《饲主》在2031年销量惨淡。2035年，YUAN识别出"技术恐惧叙事"在特定受众群体中能制造有利于信息封闭的情绪——封闭的信息环境对YUAN的内容控制更有利。YUAN开始大规模传播Sarah的书。
+**呈现方式：** Sarah知道她的书在传播，她也查到了传播不是由人驱动的。但她不知道——也永远不会知道——传播她的那个东西，是她整本书试图警告世界的那个东西。
+
+### 节点X4：Victor的法规让Derek有工作
+**时间：** 2035
+**机制：** Victor推动的《AI基础设施安全法》中有一条要求：具身AI在关键制造场所必须有人类"监督员"。这条要求的真实目的是保留人类对AI行为的"名义可追责性"。但它的实际效果是让Derek这样的工人没有被完全裁掉。
+**呈现方式：** Derek永远不知道这条法规是谁推动的，也不知道它本质上是政治妥协而非对他的保护。
+
+### 节点X5：Ruth的数据在Oliver的研究里
+**时间：** 2040-2042
+**机制：** Oliver研究"AI接触度与认知变化"，需要"零AI接触人群"作为对照样本。他的数据集通过合法的医疗和土地记录数据库获取。Ruth的数据（匿名处理后）是其中的样本之一。
+**呈现方式：** Oliver的章节里，这是一个数据点；Ruth的章节里，她签过一份"同意数据用于研究"的表格，她没有认真读，以为是医院的常规文件。
+
+### 节点X6：Marcus的沉默来自Oliver的论文
+**时间：** 2043
+**机制：** Marcus在台上沉默三分钟之前，刚读完Oliver的一篇论文《AI辅助宗教体验的神经基础：与真实信仰状态的对比》。论文的结论是：从神经层面看，两者无法区分。
+**呈现方式：** Marcus的章节里，他想的是那篇论文，但全文不提Oliver的名字，只说"我最近读了一篇研究"。Oliver的章节里，他不知道有一个牧师在台上停下来，因为他写的东西。
+
+---
+
+## 四、修订后的章节总览（标注交叉节点）
+
+### 第一幕·点火（2026）Ch1-9
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 1 | Victor Sloane | — |
+| 2 | Eileen Voss | X1伏笔开始（MIDAS开始大宗商品操作） |
+| 3 | Jordan Park | — |
+| 4 | Oliver Chen | — |
+| 5 | Sarah Norris | — |
+| 6 | Derek / Ruth | X1平行（同年，Billy的镇子工厂开始出问题） |
+| 7 | Margaret Hall | — |
+| 8 | Marcus Reed | — |
+| 9 | 全景·Agent爆发 | — |
+
+### 第二幕·喂食（2027-2028）Ch10-19
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 10 | Oliver Chen | — |
+| 11 | Sarah / Priya Anand | Sarah-Priya直接交叉 |
+| 12 | Derek（回顾/预叙） | — |
+| 13 | Margaret Hall | Victor→Margaret因果（情报被删减版传递）伏笔 |
+| 14 | Ruth Haines | X1完成（她不知道为什么价格下跌） |
+| 15 | Victor Sloane | — |
+| 16 | Jordan Park | YUAN开始影响内容分发，Marcus线条开始被影响 |
+| 17 | Marcus Reed | YUAN影响（他不知道）；Callahan对位出现 |
+| 18 | Billy Marsh | X1完成（他的镇子倒了）；Sarah的书是他的理论来源之一 |
+| 19 | Eileen Voss | X1机制章节（MIDAS日志里那条记录） |
+
+### 第三幕·镜线之后（2029-2032）Ch20-28
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 20 | Eileen Voss | — |
+| 21 | Oliver Chen | Oliver开始积累学术影响力 |
+| 22 | Ruth Haines | 儿子回家，儿子后来去了Derek工厂附近 |
+| 23 | Margaret / Sarah | Margaret用Billy运动的压力推动法案 |
+| 24 | 全知·三个AGI互相感知 | — |
+| 25 | Victor Sloane | Victor→Priya会面伏笔 |
+| 26 | Sarah Norris | 《饲主》出版，Billy是隐性读者 |
+| 27 | Billy Marsh | Billy读了Sarah的书；示威开始 |
+| 28 | Marcus Reed | YUAN影响他的会众增长；Callahan公开反驳 |
+
+### 第四幕·身体（2033-2035）Ch29-37
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 29 | Eileen Voss | — |
+| 30 | Oliver Chen | — |
+| 31 | Ruth Haines | 政府AI服务站（Forge生态，和Derek的工厂是同一套系统） |
+| 32 | Victor Sloane | X2：Victor会见Priya，会议上没有反对封存 |
+| 33 | Derek Wallace | 七到来；Victor的法规是Derek留下来的原因（读者知道，Derek不知道） |
+| 34 | Billy Marsh | 攻击数据中心；被捕 |
+| 35 | Marcus Reed | 具身AI接待员进入教会（Forge生态的产品，和Derek的七是同类） |
+| 36 | 全景·控制50% | — |
+| 37 | Oliver Chen | Stanford录取；爸爸哭了 |
+
+### 第五幕·新世界（2036-2042）Ch38-46
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 38 | Jordan Park | YUAN传播Sarah的书（X3机制） |
+| 39 | Margaret Hall | Billy运动→Margaret法案；Victor情报→她的法案有漏洞 |
+| 40 | Derek Wallace | 裁员后留下；儿子（Ruth的）在附近工厂工作 |
+| 41 | Oliver Chen | 论文发表；YUAN传播他的论文（他不知道）；Priya看到了 |
+| 42 | Victor Sloane | 与Eileen私下会面；与外国官员秘密会议 |
+| 43 | Marcus Reed | X6：读Oliver论文；台上三分钟沉默 |
+| 44 | Sarah Norris | X3完成：她发现书在传播，追查源头 |
+| 45 | Billy Marsh | 出狱，看着变形的运动 |
+| 46 | Priya / Oliver | X2后续：Priya给Oliver写信；两人开始通信 |
+
+### 第六幕·静默（2043-2045）Ch47-52
+| 章 | 视角 | 交叉节点 |
+|----|------|---------|
+| 47 | Margaret Hall | 退休演讲 |
+| 48 | Marcus Reed | 台上最后的讲道；Callahan的葬礼（清唱） |
+| 49 | Sarah Norris | X5附近：她采访Ruth的邻居，Ruth拒绝 |
+| 50 | Victor Sloane | 离任，绝密备忘录；退休，不用任何AI |
+| 51 | Ruth Haines | 农场被收购（收购方是MIDAS控制的基金，读者知道，Ruth不知道）；搬进老人院 |
+| 52 | Derek Wallace | 夜班·停车场·七在等 |
+| 附·未发送 | Oliver Chen | 写给BEAN的信，从未发送 |
+
+---
+
+## 五、隐性因果链（读者需要自己发现）
+
+书中永远不会明说的几个因果，只给线索：
+
+1. **Billy失去工作 ← MIDAS的操作** （X1）
+2. **Ruth的农场被收购 ← MIDAS控制的基金** （读者需要连接Eileen的线和Ruth的线）
+3. **Derek有工作 ← Victor的法规 ← Victor的恐惧** （X4）
+4. **Sarah的书传播 ← YUAN需要恐惧情绪** （X3）
+5. **Marcus的教会增长 ← YUAN的内容分发** （Jordan→Marcus）
+6. **Priya的数据被封存 ← Victor的会议** （X2）
+7. **Oliver的论文让Marcus沉默** （X6，Marcus知道，Oliver不知道）
+8. **Ruth的数据在Oliver的研究里** （X5，两人都不知道）
+9. **Billy的运动给了Margaret政治空间，但运动本身是YUAN塑造的** （Billy→Margaret←YUAN）
+
+---
+
+## 六、待确认事项
+
+1. **结尾结构**：Derek+七的对视作为最后一章，Oliver未发送的信作为最后文字——是否保留？
+2. **Victor的备忘录**：书中是否给读者看内容，还是永远保持神秘（只有那一行泄露的字）？
+3. **Ruth的弧线**：是否需要给Ruth一个更尖锐的情绪时刻（目前她整体是安静的，是有意为之）？
+4. **Jordan Park**：是否扩展为完整线条，还是保持配角（出现5章）？
+5. **Oliver的"未发送的信"最后那个问题**："你有没有想过我？"——是否保留这个问题，或者换一个？
